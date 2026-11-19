@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#151e35">
+
+    <meta name="description"
+          content="LINQO - Communication for Everyone">
+
+    <meta name="mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-title"
+          content="LINQO">
+
+    <link rel="manifest"
+          href="./manifest.json">
+
+    <link rel="icon"
+          href="./icon.svg"
+          type="image/svg+xml">
+
+    <title>LINQO - Communication for Everyone</title>
+
+    <link rel="stylesheet"
+          href="./style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- WELCOME SCREEN -->
+
+        <section id="welcome-screen"
+                 class="screen welcome-screen">
+
+            <div class="welcome-content">
+
+                <div class="app-logo">
+                    <span>L</span>
+                </div>
+
+                <h1>LINQO</h1>
+
+                <p class="tagline">
+                    Communication for Everyone
+                </p>
+
+                <p class="welcome-description">
+                    Connect with the people who matter.
+                    Simple, smart and reliable communication.
+                </p>
+
+                <button id="get-started-btn"
+                        class="primary-btn">
+                    Get Started
+                </button>
+
+                <p class="welcome-footer">
+                    Your world. Your conversations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN SCREEN -->
+
+        <section id="login-screen"
+                 class="screen login-screen hidden">
+
+            <div class="login-header">
+
+                <div class="small-logo">L</div>
+
+                <h2>Welcome to LINQO</h2>
+
+                <p>Enter your mobile number to continue.</p>
+
+            </div>
+
+            <div class="login-form">
+
+                <label for="phone-number">
+                    Mobile Number
+                </label>
+
+                <div class="phone-input-group">
+
+                    <select id="country-code">
+
+                        <option value="+92">PK +92</option>
+                        <option value="+1">US +1</option>
+                        <option value="+44">UK +44</option>
+                        <option value="+91">IN +91</option>
+
+                    </select>
+
+                    <input
+                        type="tel"
+                        id="phone-number"
+                        placeholder="3001234567"
+                        maxlength="15"
+                    >
+
+                </div>
+
+                <button id="continue-btn"
+                        class="primary-btn">
+                    Continue
+                </button>
+
+                <p class="form-note">
+                    Real SMS verification will be connected later.
+                </p>
+
+            </div>
+
+            <button class="back-btn"
+                    data-back="welcome-screen">
+                Back
+            </button>
+
+        </section>
+
+
+        <!-- OTP SCREEN -->
+
+        <section id="otp-screen"
+                 class="screen otp-screen hidden">
+
+            <div class="small-logo">L</div>
+
+            <h2>Verify Your Number</h2>
+
+            <p>
+                Enter the verification code when SMS verification
+                becomes available.
+            </p>
+
+            <div class="otp-inputs">
+
+                <input type="text" maxlength="1" inputmode="numeric">
+                <input type="text" maxlength="1" inputmode="numeric">
+                <input type="text" maxlength="1" inputmode="numeric">
+                <input type="text" maxlength="1" inputmode="numeric">
+                <input type="text" maxlength="1" inputmode="numeric">
+                <input type="text" maxlength="1" inputmode="numeric">
+
+            </div>
+
+            <button id="verify-btn"
+                    class="primary-btn">
+                Open LINQO Preview
+            </button>
+
+            <p class="form-note">
+                This is a demo. No real SMS is sent.
+            </p>
+
+            <button class="back-btn"
+                    data-back="login-screen">
+                Back
+            </button>
+
+        </section>
+
+
+        <!-- MAIN APPLICATION -->
+
+        <section id="main-screen"
+                 class="screen main-screen hidden">
+
+            <!-- HEADER -->
+
+            <header class="app-header">
+
+                <div class="header-brand">
+
+                    <div class="header-logo">L</div>
+
+                    <div>
+                        <h2>LINQO</h2>
+                        <span>Communication for Everyone</span>
+                    </div>
+
+                </div>
+
+                <button id="profile-btn"
+                        class="profile-button">
+                    A
+                </button>
+
+            </header>
+
+
+            <!-- MAIN CONTENT -->
+
+            <main class="main-content">
+
+
+                <!-- CHATS -->
+
+                <section id="chats-page"
+                         class="page">
+
+                    <div class="page-heading">
+
+                        <div>
+                            <h1>Messages</h1>
+                            <p>Your conversations in one place</p>
+                        </div>
+
+                        <button id="new-chat-btn"
+                                class="icon-button">
+                            +
+                        </button>
+
+                    </div>
+
+                    <div class="search-box">
+
+                        <span>Search</span>
+
+                        <input
+                            type="search"
+                            id="search-input"
+                            placeholder="Search conversations..."
+                        >
+
+                    </div>
+
+                    <div class="section-title">
+                        Recent Chats
+                    </div>
+
+                    <div id="chat-list"
+                         class="chat-list">
+
+                        <button class="chat-item"
+                                data-chat="Ahmed">
+
+                            <div class="chat-avatar avatar-blue">A</div>
+
+                            <div class="chat-details">
+                                <h3>Ahmed</h3>
+                                <p>Hello! How are you?</p>
+                            </div>
+
+                            <span class="chat-time">10:30</span>
+
+                        </button>
+
+
+                        <button class="chat-item"
+                                data-chat="Sarah">
+
+                            <div class="chat-avatar avatar-purple">S</div>
+
+                            <div class="chat-details">
+                                <h3>Sarah</h3>
+                                <p>See you soon!</p>
+                            </div>
+
+                            <span class="chat-time">09:15</span>
+
+                        </button>
+
+
+                        <button class="chat-item"
+                                data-chat="Muhammad">
+
+                            <div class="chat-avatar avatar-green">M</div>
+
+                            <div class="chat-details">
+                                <h3>Muhammad</h3>
+                                <p>Thank you.</p>
+                            </div>
+
+                            <span class="chat-time">Yesterday</span>
+
+                        </button>
+
+
+                        <button class="chat-item"
+                                data-chat="Family Group">
+
+                            <div class="chat-avatar avatar-orange">F</div>
+
+                            <div class="chat-details">
+                                <h3>Family Group</h3>
+                                <p>Good morning everyone!</p>
+                            </div>
+
+                            <span class="chat-time">Yesterday</span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CALLS -->
+
+                <section id="calls-page"
+                         class="page hidden">
+
+                    <div class="page-heading">
+                        <div>
+                            <h1>Calls</h1>
+                            <p>Stay connected with people</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">Call</div>
+
+                        <h2>Audio Calls</h2>
+
+                        <p>
+                            Talk to your contacts with audio calls.
+                        </p>
+
+                        <span class="coming-soon">
+                            Coming Soon
+                        </span>
+
+                    </div>
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">Video</div>
+
+                        <h2>Video Calls</h2>
+
+                        <p>
+                            See and talk to people face to face.
+                        </p>
+
+                        <span class="coming-soon">
+                            Coming Soon
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CONTACTS -->
+
+                <section id="contacts-page"
+                         class="page hidden">
+
+                    <div class="page-heading">
+                        <div>
+                            <h1>Contacts</h1>
+                            <p>People you can connect with</p>
+                        </div>
+                    </div>
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">People</div>
+
+                        <h2>Your Contacts</h2>
+
+                        <p>
+                            Contact connection will be added
+                            in a future update.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SETTINGS -->
+
+                <section id="settings-page"
+                         class="page hidden">
+
+                    <div class="page-heading">
+                        <div>
+                            <h1>Settings</h1>
+                            <p>Manage your LINQO experience</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-list">
+
+                        <button class="setting-item">
+                            <span>My Profile</span>
+                            <span>&gt;</span>
+                        </button>
+
+                        <button class="setting-item">
+                            <span>Privacy</span>
+                            <span>&gt;</span>
+                        </button>
+
+                        <button class="setting-item">
+                            <span>Notifications</span>
+                            <span>&gt;</span>
+                        </button>
+
+                        <button class="setting-item">
+                            <span>Low Data Mode</span>
+                            <span>&gt;</span>
+                        </button>
+
+                        <button class="setting-item">
+                            <span>Emergency Messages</span>
+                            <span>&gt;</span>
+                        </button>
+
+                        <button class="setting-item">
+                            <span>About LINQO</span>
+                            <span>&gt;</span>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CONVERSATION PREVIEW -->
+
+                <section id="conversation-page"
+                         class="page hidden">
+
+                    <div class="page-heading">
+
+                        <button id="back-to-chats"
+                                class="icon-button">
+                            &lt;
+                        </button>
+
+                        <div>
+                            <h1 id="conversation-name">
+                                Conversation
+                            </h1>
+
+                            <p>Message preview</p>
+                        </div>
+
+                    </div>
+
+                    <div class="empty-state">
+
+                        <h2>Conversation Preview</h2>
+
+                        <p>
+                            Real-time messaging will be connected
+                            when the LINQO server is ready.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+            </main>
+
+
+            <!-- BOTTOM NAVIGATION -->
+
+            <nav class="bottom-navigation">
+
+                <button
+                    class="nav-button active"
+                    data-page="chats-page">
+
+                    <span class="nav-icon">Chat</span>
+                    <span>Chats</span>
+
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="calls-page">
+
+                    <span class="nav-icon">Call</span>
+                    <span>Calls</span>
+
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="contacts-page">
+
+                    <span class="nav-icon">People</span>
+                    <span>Contacts</span>
+
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="settings-page">
+
+                    <span class="nav-icon">Gear</span>
+                    <span>Settings</span>
+
+                </button>
+
+            </nav>
+
+        </section>
+
+
+        <!-- NOTIFICATION -->
+
+        <div id="toast"
+             class="toast hidden">
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT CONNECTION -->
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
