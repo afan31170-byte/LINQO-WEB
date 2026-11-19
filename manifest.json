@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "LINQO - Communication for Everyone",
+  "short_name": "LINQO",
+  "description": "Communication for Everyone",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#151e35",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
