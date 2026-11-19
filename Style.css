@@ -1,0 +1,589 @@
+/*LINQO - MAIN DESIGN */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #0b1020;
+    --surface: #151e35;
+    --surface2: #202c47;
+    --primary: #19cba3;
+    --primary-dark: #0da985;
+    --text: #ffffff;
+    --muted: #9ba8bd;
+    --border: rgba(255,255,255,0.09);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* GENERAL SCREENS */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* WELCOME SCREEN */
+
+.welcome-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at top, #173d4b, transparent 55%),
+        var(--background);
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.app-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #20dfb1, #079b91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #061b20;
+    font-size: 42px;
+    font-weight: 900;
+    box-shadow: 0 12px 40px rgba(25,203,163,0.25);
+}
+
+.tagline {
+    color: var(--primary);
+    font-size: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.welcome-description {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.primary-btn {
+    width: 100%;
+    min-height: 54px;
+    border: none;
+    border-radius: 15px;
+    background: var(--primary);
+    color: #071c20;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.primary-btn:active {
+    transform: scale(0.97);
+}
+
+/* LOGIN SCREEN */
+
+.login-screen,
+.otp-screen {
+    padding: 35px 24px;
+    background:
+        radial-gradient(circle at top, #173d4b, transparent 55%),
+        var(--background);
+}
+
+.login-header {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.small-logo {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    background: var(--primary);
+    color: #061b20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.login-header h1,
+.otp-screen h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.login-header p,
+.otp-screen p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.phone-input-group input,
+.phone-input-group select {
+    min-width: 0;
+    height: 55px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 0 12px;
+    font-size: 16px;
+}
+
+#country-code {
+    width: 105px;
+}
+
+#phone-number {
+    flex: 1;
+}
+
+input:focus {
+    outline: 2px solid var(--primary);
+}
+
+.back-btn {
+    display: block;
+    margin-top: 22px;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: var(--primary);
+    font-size: 15px;
+}
+
+/* OTP SCREEN */
+
+.otp-screen {
+    text-align: center;
+    padding-top: 55px;
+}
+
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 30px 0;
+}
+
+.otp-inputs input {
+    width: 43px;
+    height: 52px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: white;
+}
+
+/* MAIN APPLICATION */
+
+.main-screen {
+    padding-bottom: 95px;
+    background: var(--background);
+}
+
+/* APP HEADER */
+
+.app-header {
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.header-logo {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: var(--primary);
+    color: #061b20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.header-brand h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.profile-button {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface2);
+    color: var(--primary);
+    font-size: 20px;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+.page {
+    width: 100%;
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.page-heading h2 {
+    font-size: 25px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: var(--primary);
+    font-size: 21px;
+}
+
+/* SEARCH */
+
+.search-box {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 49px;
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: white;
+    font-size: 15px;
+}
+
+.section-title {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+/* CHAT LIST */
+
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.chat-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: var(--surface);
+    color: white;
+    text-align: left;
+}
+
+.chat-avatar {
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.avatar-blue {
+    background: #287bd7;
+}
+
+.avatar-purple {
+    background: #8656d9;
+}
+
+.avatar-green {
+    background: #16a77d;
+}
+
+.avatar-orange {
+    background: #d98535;
+}
+
+.chat-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-details h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.chat-details p {
+    color: var(--muted);
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chat-time {
+    color: var(--muted);
+    font-size: 11px;
+    align-self: flex-start;
+}
+
+/* CALLS PAGE */
+
+.feature-card {
+    padding: 25px 18px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: var(--surface);
+    text-align: center;
+}
+
+.feature-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    border-radius: 20px;
+    background: rgba(25,203,163,0.12);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.coming-soon {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    background: rgba(25,203,163,0.12);
+    color: var(--primary);
+    font-size: 12px;
+}
+
+/* CONTACTS PAGE */
+
+.empty-state {
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.empty-icon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* SETTINGS PAGE */
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setting-item {
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: white;
+    text-align: left;
+    font-size: 15px;
+}
+
+/* CONVERSATION PAGE */
+
+#conversation-page .page-heading {
+    gap: 12px;
+}
+
+#conversation-name {
+    flex: 1;
+    font-size: 20px;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-navigation {
+    width: 100%;
+    min-height: 75px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 8px 5px;
+}
+
+.nav-button {
+    flex: 1;
+    height: 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.nav-icon {
+    font-size: 21px;
+}
+
+.nav-button.active {
+    color: var(--primary);
+}
+
+/* TOAST MESSAGE */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 95px;
+    transform: translateX(-50%);
+    max-width: 90%;
+    padding: 13px 20px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #061b20;
+    font-size: 14px;
+    text-align: center;
+    z-index: 100;
+}
+
+/* SMALL MOBILE SCREENS */
+
+@media (max-width: 360px) {
+    .main-content {
+        padding: 16px 11px;
+    }
+
+    .page-heading h2 {
+        font-size: 22px;
+    }
+
+    .otp-inputs {
+        gap: 5px;
+    }
+
+    .otp-inputs input {
+        width: 39px;
+        height: 48px;
+    }
+
+    .chat-item {
+        padding: 10px;
+    }
+}
